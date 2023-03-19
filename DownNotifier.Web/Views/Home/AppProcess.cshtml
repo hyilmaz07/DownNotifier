@@ -1,0 +1,62 @@
+﻿@model DownNotifier.Entities.Models.Notifier
+
+<div class="col-lg-12">
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-4">
+            <h2>@ViewBag.Title</h2>
+            @ViewBag.BreadCrumb
+        </div>
+        <div class="col-sm-8">
+            <div class="title-action">
+                @*<a href="" class="btn btn-primary">This is action area</a>*@
+            </div>
+        </div>
+    </div>
+
+    <div class="ibox ">
+        <div class="ibox-content">
+            <form role="form" action="/AppProcess" method="post">
+                <div class="form-group col-lg-3">
+                    <label>App Name</label>
+                    @Html.HiddenFor(model => model.Id)
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "form-danger" })
+                </div>
+                <div class="form-group col-lg-3">
+                    <label>App Url</label>
+                    @Html.TextBoxFor(model => model.Url, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Url, "", new { @class = "form-danger" })
+                </div>
+                <div class="form-group col-lg-3">
+                    <label>Kontrol Sıklığı</label>
+                    @Html.TextBoxFor(model => model.Interval, new { @class = "form-control", @type="number" })
+                    @Html.ValidationMessageFor(model => model.Interval, "", new { @class = "form-danger" })
+                </div>
+                <div class="form-group col-lg-3">
+                    <label>Bildim Adresi</label>
+                    @Html.TextBoxFor(model => model.MailAddress, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MailAddress, "", new { @class = "form-danger" })
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                        <button class="btn btn-sm btn-primary" id="btnSubmit" name="btnSubmit" type="submit">Kaydet</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section footer{
+    <script>
+        $("#btnSubmit").click(function () {
+            var EczanemPoses = '';
+            $('select[id^="SettingsEczanemPos"]').find(':selected').each(function (e, i) {
+                EczanemPoses += $(this).attr("xid") + '-' + $(this).val() + ';';
+            });
+            console.log(EczanemPoses);
+            $("#EczanemPoses").val(EczanemPoses);
+        });
+
+    </script>
+}

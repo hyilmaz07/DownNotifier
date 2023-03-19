@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title | DownNotifier</title>
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="~/css/jquery-ui.css" rel="stylesheet" />
+    <link href="~/css/animate.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+    <link href="~/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="~/img/icons/favicon.png" />
+    @RenderSection("head", false)
+</head>
+
+<body class="">
+
+    <div id="wrapper">
+
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <a href="~/">
+
+
+
+                                <span class="block m-t-xs font-bold">Panel</span>
+
+                            </a>
+
+                        </div>
+                        <div class="logo-element">
+                        </div>
+                    </li>
+
+           
+                     
+                    <li class="@ViewBag.ClassUser">
+                        <a href="#">
+                            <span class="nav-label">Kullanıcı İşlemleri</span> <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level collapse">
+                            <li class="@ViewBag.ClassUserList">
+                                <a href="~/UserList">
+                                    <span class="nav-label">Kullanıcılar</span>
+                                </a>
+                            </li> 
+                        </ul>
+                    </li>
+
+                    <li class="@ViewBag.ClassNotifier">
+                        <a href="#">
+                            <span class="nav-label">App İşlemleri</span> <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level collapse">
+                            <li class="@ViewBag.ClassAppList">
+                                <a href="~/AppList">
+                                    <span class="nav-label">Uygulamalar</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        @*<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                        <form role="search" class="navbar-form-custom" action="search_results.html">
+                        <div class="form-group">
+                        <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                        </form>*@
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        @*<li>
+                        <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
+                        </li>*@
+                        <li class="dropdown">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                <i class="fa fa-bell"></i>  <span class="label label-warning">222</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-alerts">
+
+                                <li>
+                                    <div class="text-center link-block">
+                                        <a href="~/#" class="dropdown-item">
+                                            <i class="fa fa-bell"></i> <strong>Tüm Bildirimleri</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="/profile/">
+                                <i class="fa fa-user"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/logout">
+                                <i class="fa fa-sign-out"></i> Çıkış Yap
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+            <div class="wrapper wrapper-content animated fadeIn">
+                <div class="row">
+                    @RenderBody()
+                </div>
+            </div>
+            <div class="footer">
+                <div class="float-right">
+                </div>
+                <div>
+                    <strong>Copyright</strong> 
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="~/js/jquery-3.6.0.js"></script>
+    <script src="~/js/jquery-ui1.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="~/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/js/jquery.validate.min.js"></script>
+    <script src="~/js/jquery.validate.unobtrusive.js"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="~/js/inspinia.js"></script>
+    <script src="~/js/plugins/pace/pace.min.js"></script>
+    <script src="~/js/App.js"></script>
+    <script src="~/js/datatable.js"></script>
+    <script src="~/js/plugins/iCheck/icheck.min.js"></script>
+
+
+    @RenderSection("footer", false)
+
+</body>
+
+</html>
